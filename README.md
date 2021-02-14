@@ -38,7 +38,6 @@ Configure your database
 pipenv run flask migrate up
 ```
 
-
 Run the application
 
 ```
@@ -46,6 +45,12 @@ pipenv run flask run
 ```
 
 Access http://localhost:5000 (or to the other port configured on your .env file) to see the running site.
+
+### Templates structure
+
+The project provides pré-built pages structures and components, inside the `app/templates` folder.
+
+To start a new page you can rename the example page at `app/templates/pages/page.html.jinja`.
 
 ## Translations
 
