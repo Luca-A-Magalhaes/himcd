@@ -1,0 +1,10 @@
+# IDEs
+/.vscode
+
+# Env file
+.env
+
+# Data folder
+/data/**/*
+
+data_updater_local.sh

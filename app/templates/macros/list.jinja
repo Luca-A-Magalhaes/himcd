@@ -1,0 +1,51 @@
+{% macro render(title, description='', items=[], place="", level='countries') -%}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col"><span>{{ _('Place') }}</span></div>
+                <div class="col text-center"><span>{{ _('Similarity') }}</span></div>
+                <div class="col text-center"><span>{{ _('Difference in days') }}</span></div>
+                <div class="col text-center hide-mobile"><span>{{ _('Link to Comparison Charts') }}</span></div>
+                <div class="col text-center hide-mobile"><span>{{ _('Link to Timeline') }}</span></div>
+                <div class="col text-center show-mobile"><span></span></div>
+            </div>
+        </li>
+        {% for splace in items %}
+        <li class="list-group-item" style="background-color: {{ '#eee' if (loop.index%2) else '#fff' }};">
+            <div class="row">
+                <div class="col"><span>{{ splace[0] }}</span></div>
+                <div class="col text-center"><span>{{ "{:.2f}".format(splace[-1]) }}</span></div>
+                <div class="col text-center"><span>{{ "{:.0f}".format(splace[1]) }}</span></div>
+                <div class="col text-center hide-mobile"><span><a class="card-link"
+                            href="{{ url_for('comparison', place=place, place2=splace[0], level=level) }}"><i
+                                class="fas fa-chart-bar"></i> {{ _('See Comparison Charts') }}</a></span></div>
+                <div class="col text-center hide-mobile"><span><a class="card-link"
+                            href="{{ url_for('timeline', place=place, place2=splace[0], level=level) }}"><i
+                                class="far fa-calendar-alt"> </i> {{ _('See Timeline') }}</a></span></div>
+                <div class="col text-center justify-content-end show-mobile">
+                    <div class="btn-group dropleft">
+                        <div class="dropdown-toggle no-before" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <img class="menu-img" src="{{ url_for('.static', filename='img/menu.png') }}" alt="Menu">
+                        </div>
+                        <div class="dropdown-menu">
+                            <span class="dropdown-item"><a class="card-link"
+                                    href="{{ url_for('comparison', place=place, place2=splace[0], level=level) }}"><i
+                                        class="fas fa-chart-bar"></i> {{ _('See Comparison Charts') }}</a></span>
+                            <span class="dropdown-item"><a class="card-link"
+                                    href="{{ url_for('timeline', place=place, place2=splace[0], level=level) }}"><i
+                                        class="fas fa-calendar-alt"></i> {{ _('See Timeline') }}</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{%- endmacro %}

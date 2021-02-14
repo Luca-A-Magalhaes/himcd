@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+Flask = "*"
+Flask-WTF = "*"
+pandas = "*"
+matplotlib = "*"
+seaborn = "*"
+scipy = "*"
+python-dotenv = "*"
+Flask-Bootstrap4 = "*"
+sklearn = "*"
+Flask-SQLAlchemy = "*"
+PyMySQL = "*"
+Flask-Admin = "*"
+Flask-Security = "*"
+Flask-BabelEx = "*"
+requests = "*"
+bs4 = "*"
+xlrd = "*"
+Unidecode = "*"
+statsmodels = "*"
+plotly = "*"
+ipykernel = "*"
+yapf = "*"
+nbformat = ">=4.2.0"
+email-validator = "*"
+python-wordpress-xmlrpc = "*"
+
+[requires]
+python_version = "3.8"

@@ -1,0 +1,8 @@
+{% macro render(title, description, background='') -%}
+<div class="jumbotron jumbo" style="background-image: {% if background %} {{ background }} {% endif %}">
+  <div class="container">
+    <h1 class="display-5 mb-5">{{ title }}</h1>
+    <p>{{ description }}</p>
+  </div>
+</div>
+{%- endmacro %}

@@ -1,0 +1,28 @@
+{% macro render(title, description='', items=[], place="", level='countries') -%}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col"><span>{{ _('Variable') }}</span></div>
+                <div class="col text-center"><span>{{ _('Value') }}</span></div>
+                <div class="col text-center"><span>{{ _('Change') }}</span></div>
+            </div>
+        </li>
+        {% for s in items %}
+        <li class="list-group-item" style="background-color: {{ '#eee' if (loop.index%2) else '#fff' }};">
+            <div class="row align-middle">
+                <div class="col"><span>{{ s['variable'] }}</span></div>
+                <div class="col text-center">
+                    <span>{{ "{:,.2f}".format(s['value']) if s['value']%1 else "{:,.0f}".format(s['value']) }}</span>
+                </div>
+                <div class="col text-center"><span>{{ s['change'] }}</span></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{%- endmacro %}

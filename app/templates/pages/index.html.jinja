@@ -1,0 +1,35 @@
+{% extends "layout.html.jinja" %}
+{% set titulo =  _('Home')  %}
+{% import "macros/jumbotron.jinja" as jumbotron %}
+{% import "macros/place_selection.jinja" as place_selection %}
+
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+
+{% set jumbo_title = _('How Is My Country Doing?') %}
+{% set jumbo_description = _('This project aims to inform researchers, decision makers, and the general public about the most
+    promising strategies to tackle the pandemic. By providing high-quality data on the variables that influence the
+    spread and the lethality of the infection, including adopted public policies, we hope
+    that the experiences and initiatives of the places that are ahead in the epidemic can be useful to those
+    where the disease arrived latter.') %}
+
+{{ jumbotron.render(jumbo_title, jumbo_description) }}
+<div class="container">
+  <div class="row">
+    {% set form_title = _('Compare places') %}
+    {% set form_description = _('The menu below gives access to our place comparison interface.') %}
+    {% set form_label = _('Please choose a place') %}
+    {% set form_options = countries %}
+    {% set form_submit = _('Show Report') %}
+    {% set form_action = '/'%}
+    {{ place_selection.render(form_title, form_description, form_label, form_options, form_submit, form_action) }}
+  </div>
+</div>
+
+
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

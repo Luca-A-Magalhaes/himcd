@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block theme_content %}
+<div class="container">
+    <div class="row">
+        {% if form_event.errors %}
+            <ul style="list-style: none;">
+                {% for e in form_event.errors %}
+                <li class="text-danger">{{ e }} is required</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>{{ _('Report Event') }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                {{ _("""
+                    Here you contribute by reporting any important events about the epidemic in these countries.
+                    After verification, these events will be added to the timeline of the corresponding country.
+                """) }}
+            </p>
+        </div>
+    </div>
+    <form method="post" novalidate>
+        {{ form_event.hidden_tag() }}
+            <div class="row">
+                <div class="form-group col">
+                    {{ form_event.country.label }}
+                    {{ form_event.country(class_="form-control") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    {{ form_event.desc.label }}
+                    {{ form_event.desc(class_="form-control") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    {{ form_event.date.label }}
+                    {{ form_event.date(class_="form-control") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col">
+                    {{ form_event.fulltext.label }}
+                    {{ form_event.fulltext(class_="form-control") }}
+                </div>
+            </div>
+            {{ form_event.submit(class_="btn btn-primary") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

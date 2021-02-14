@@ -1,0 +1,1003 @@
+# Portuguese (Brazil) translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-05-09 22:43-0300\n"
+"PO-Revision-Date: 2020-04-01 21:03-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pt_BR\n"
+"Language-Team: pt_BR <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: app/forms.py:13 app/forms.py:22 app/forms.py:49
+msgid "Please choose a country"
+msgstr "Por favor escolha um país"
+
+#: app/forms.py:14 app/forms.py:19
+msgid "Show Report"
+msgstr "Mostrar Relatório"
+
+#: app/forms.py:18
+msgid "Please choose a city"
+msgstr "Por favor escolha uma cidade"
+
+#: app/forms.py:23 app/templates/timeline.html:150
+msgid "Event date"
+msgstr "Data do evento"
+
+#: app/forms.py:24
+msgid "Briefly describe the event"
+msgstr "Descreva o evento de forma resumida"
+
+#: app/forms.py:25
+msgid "Describe the event in detail"
+msgstr "Descreva o evento detalhadamente"
+
+#: app/forms.py:26 app/templates/timeline.html:158
+msgid "Submit event"
+msgstr "Submeter evento"
+
+#: app/templates/about_us.html:3 app/templates/components/navbar.html:46
+msgid "About Us"
+msgstr "Sobre Nós"
+
+#: app/templates/about_us.html:9
+msgid "The project"
+msgstr "O projeto"
+
+# As proximas 3 frases estao juntas:
+# The HIMCD is part of the Data Science for a Cause (Ciência de Dados por uma
+# Causa)project.
+#: app/templates/about_us.html:10
+msgid "The HIMCD is part of the"
+msgstr "O CEMP é parte do projeto"
+
+#: app/templates/about_us.html:10
+msgid "Data Science for a Cause (Ciência de Dados por uma Causa)"
+msgstr "Ciência de Dados por uma Causa"
+
+#: app/templates/about_us.html:10
+msgid " project."
+msgstr "."
+
+#: app/templates/about_us.html:15
+msgid "Data sources"
+msgstr "Fontes dos dados"
+
+#: app/templates/about_us.html:18
+msgid "Check our"
+msgstr "Visite o nosso"
+
+#: app/templates/about_us.html:18 app/templates/components/navbar.html:45
+msgid "FAQ"
+msgstr "Perguntas Frequentes"
+
+#: app/templates/about_us.html:25
+msgid "The team"
+msgstr "A equipe"
+
+#: app/templates/about_us.html:26
+msgid "The people behind this website are:"
+msgstr "As pessoas por trás deste site são:"
+
+#: app/templates/compare_init.html:7
+#, python-format
+msgid "COVID-19 Report for %(country)s"
+msgstr "COVID-19 Relatório para o/a/_ %(country)s"
+
+#: app/templates/compare_init.html:13
+#, python-format
+msgid "List of most similar countries to %(country)s – COVID-19"
+msgstr "Lista dos países mais semelhantes ao/à/a %(country)s – COVID-19"
+
+#: app/templates/compare_init.html:14
+#, python-format
+msgid ""
+"The countries below are those that had COVID-19 cases before %(country)s."
+" The similarity index and difference in days are\n"
+"given by the proximity of the curves of number of deaths. See comparison "
+"charts and timelines for\n"
+"more details."
+msgstr ""
+"Os países abaixo são aqueles que tiveram casos de COVID-19 antes do/da/de"
+" %(country)s. O índice de semelhança e a diferença em dias são\n"
+"dados pela proximidade das curvas do número de mortes. Veja os gráficos "
+"de comparação e as linhas do tempo para mais detalhes."
+
+#: app/templates/compare_init.html:20
+#, python-format
+msgid "List of most similar countries to %(country)s – Socioeconomics"
+msgstr ""
+"Lista dos países mais semelhantes ao/à/a %(country)s – Sociedade e "
+"economia"
+
+#: app/templates/compare_init.html:21
+#, python-format
+msgid ""
+"The countries below are countries similar to %(country)s in terms of "
+"socioeconomic factors. The similarity index is based on\n"
+"several variables that might influence the severity of the epidemic. See "
+"comparison charts for\n"
+"more details."
+msgstr ""
+"Os países abaixo são os mais semelhantes ao/à/a %(country)s em termos "
+"socioeconômicos. O índice de semelhança é baseado em\n"
+"vários fatores socioeconômicos que podem influenciar a severidade da "
+"epidemia. Veja os gráficos de comparação para\n"
+"mais detalhes."
+
+#: app/templates/compare_init.html:27
+#, python-format
+msgid "Current epidemic statistics for %(country)s"
+msgstr "Estatísticas atuais da epidemia para o/a/_  %(country)s"
+
+#: app/templates/compare_init.html:28
+msgid ""
+"Change is the variation of the value in relation to the previous day (in "
+"percentage points)."
+msgstr ""
+"A alteração é a variação do valor em relação ao dia anterior (em "
+"porcentagem)."
+
+#: app/templates/compare_init_city.html:4
+#: app/templates/compare_init_city.html:10
+#, python-format
+msgid "COVID-19 Report for %(city)s"
+msgstr " COVID-19 Relatório para o/a/_ %(city)s"
+
+#: app/templates/compare_init_city.html:16
+#, python-format
+msgid "List of most similar cities to %(city)s - COVID-19"
+msgstr "Lista das cidades mais semelhantes ao/à/a %(city)s – COVID-19"
+
+#: app/templates/compare_init_city.html:17
+#, python-format
+msgid ""
+"The cities below are those that had COVID-19 cases before %(city)s. The "
+"similarity index and difference in days are\n"
+"given by the proximity of the curves of number of deaths. See comparison "
+"charts and timelines for\n"
+"more details."
+msgstr ""
+"As cidades abaixo são aquelas que tiveram casos de COVID-19 antes "
+"do/da/de %(city)s. O índice de semelhança e a diferença em dias são\n"
+"dados pela proximidade das curvas do número de mortes. Veja os gráficos "
+"de comparação e as linhas do tempo para mais detalhes."
+
+#: app/templates/compare_init_city.html:24
+#, python-format
+msgid "List of most similar cities to %(city)s – Socioeconomics"
+msgstr "Lista das cidades mais semelhantes ao/à/a %(city)s – Sociedade e economia"
+
+#: app/templates/compare_init_city.html:25
+#, python-format
+msgid ""
+"The cities below are cities similar to %(city)s in terms of socioeconomic"
+" factors. The similarity index is based on\n"
+"several variables that might influence the severity of the epidemic. See "
+"comparison charts for\n"
+"more details."
+msgstr ""
+"As cidades abaixo são as mais semelhantes ao/à/a %(city)s em termos "
+"socioeconômicos. O índice de semelhança é baseado em\n"
+"vários fatores socioeconômicos que podem influenciar a severidade da "
+"epidemia. Veja os gráficos de comparação para\n"
+"mais detalhes."
+
+#: app/templates/compare_init_city.html:32
+#, python-format
+msgid "Current epidemic statistics for %(city)s"
+msgstr "Estatísticas atuais da epidemia para o/a/_  %(city)s"
+
+#: app/templates/compare_places.html:14
+msgid "Comparing cases and deaths"
+msgstr "Comparando casos e mortes"
+
+#: app/templates/compare_places.html:15
+#, python-format
+msgid ""
+"The chart below shows the curves of confirmed cases (dotted lines) and "
+"deaths (solid lines) in %(place)s and\n"
+"    %(place2)s over time. The curves for number of deaths were aligned to"
+" facilitate the comparison of the\n"
+"    progression of the epidemic. Confirmed cases and deaths are in "
+"logarithmic scale. You can change that and other chart specifications in "
+"the 'Configure chart' button below."
+msgstr ""
+"O gráfico abaixo mostra as curvas de casos confirmados (linhas "
+"pontilhadas) e as curvas de mortes (linhas contínuas) no/na/em %(place)s "
+"e\n"
+"no/na/em %(place2)s ao longo do tempo. As curvas do número de mortes "
+"foram alinhadas para facilitar a comparação da\n"
+"progressão da epidemia. Os casos confirmados e as mortes estão em escala "
+"logarítmica. Você pode alterar essa e outras especificações do gráfico no"
+" botão 'Configurar gráfico'."
+
+#: app/templates/compare_places.html:21 app/templates/faq.html:79
+msgid "Comparison Chart"
+msgstr "Gráfico de Comparação"
+
+#: app/templates/compare_places.html:24
+msgid "Configure chart"
+msgstr "Configurar gráfico"
+
+#: app/templates/compare_places.html:28
+msgid "Scale:"
+msgstr "Escala:"
+
+#: app/templates/compare_places.html:30
+msgid "Log"
+msgstr "Log"
+
+#: app/templates/compare_places.html:32
+msgid "Linear"
+msgstr "Linear"
+
+#: app/templates/compare_places.html:33
+msgid "Y axis:"
+msgstr "Eixo Y:"
+
+#: app/templates/compare_places.html:35
+msgid "Total"
+msgstr "Total"
+
+#: app/templates/compare_places.html:37
+msgid "Total per 100k inhabitants"
+msgstr "Total por 100 mil habitantes"
+
+#: app/templates/compare_places.html:38
+msgid "Curve alignment:"
+msgstr "Alinhamento da curva:"
+
+#: app/templates/compare_places.html:40
+msgid "Similarity index"
+msgstr "Índice de semelhança"
+
+#: app/templates/compare_places.html:42
+msgid "10th death"
+msgstr "10ª morte"
+
+#: app/templates/compare_places.html:43
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: app/templates/compare_places.html:63 app/templates/compare_places.html:68
+msgid "Comparing growth rates"
+msgstr "Comparando taxas de crescimento"
+
+#: app/templates/compare_places.html:64
+#, python-format
+msgid ""
+"The charts below show the weekly growth of confirmed cases (top) and "
+"deaths (bottom) in %(place)s and %(place2)s over\n"
+"    time."
+msgstr ""
+"Os gráficos abaixo mostram o crescimento semanal de casos confirmados (em"
+" cima) e de mortes (embaixo)no/na/em %(place)s e\n"
+"no/na/em %(place2)s ao longo\n"
+"do tempo."
+
+#: app/templates/compare_places.html:75
+msgid "Comparing responses"
+msgstr "Comparando respostas"
+
+#: app/templates/compare_places.html:76
+msgid ""
+"The chart below shows the stringency index of the responses to the "
+"epidemic and the cumulative deaths curve in each country over time."
+msgstr ""
+"O gráfico abaixo mostra o índice de rigidez das respostas à epidemia e a "
+"curva de mortes cumulativas em cada país ao longo do tempo."
+
+#: app/templates/compare_places.html:90
+msgid "Comparing current statistics of the epidemic"
+msgstr "Comparando estatísticas atuais da epidemia"
+
+#: app/templates/compare_places.html:91
+msgid ""
+"The statistics below are based on the latest processed data. Most up-to-"
+"date data is integrated once a day. Change is the variation of the value "
+"in relation to the previous day (in percentage points)."
+msgstr ""
+"As estatísticas abaixo são baseadas nos últimos dados processados. Dados "
+"mais atualizados são integrados uma vez por dia. A alteração é a variação"
+" do valor em relação ao dia anterior (em porcentagem)."
+
+#: app/templates/compare_places.html:95 app/templates/compare_places.html:98
+#, python-format
+msgid "Current epidemic statistics for %(place)s"
+msgstr "Estatísticas atuais da epidemia para o/a/_ %(place)s"
+
+#: app/templates/compare_places.html:104
+#, python-format
+msgid "Comparing socioeconomic factors between the two %(level)s"
+msgstr "Comparando fatores socioeconômicos entre os/as dois/duas %(level)s"
+
+#: app/templates/compare_places.html:105
+#, python-format
+msgid ""
+"For data sources, check our FAQ section. The score is based on how the "
+"%(place_name)s compares with other %(level)s (decile)."
+msgstr ""
+"Para mais informações sobre as fontes dos dados, verifique a seção de "
+"Perguntas Frequentes. A pontuação é baseada em como o/a %(place_name)s se"
+" compara com os/as outros/outras %(level)s (decil)."
+
+#: app/templates/compare_places.html:108 app/templates/compare_places.html:110
+#, python-format
+msgid "Current general statistics for %(place)s"
+msgstr "Estatísticas atuais gerais para o/a/_ %(place)s"
+
+#: app/templates/explore_cities.html:4 app/templates/explore_cities.html:10
+msgid "Explore Cities (Brazil)"
+msgstr "Explorar Cidades (Brasil)"
+
+#: app/templates/explore_cities.html:12
+msgid ""
+"The pandemic has affected the entire world. However, some places are more"
+" vulnerable than others. This page aims to draw attention to the most "
+"relevant and urgent places to explore (only Brazilian cities currently)."
+msgstr ""
+"A pandemia tem vindo a afetar o mundo inteiro. Porém, alguns lugares são "
+"mais vulneráveis que outros. Esta página tem como objetivo chamar a "
+"atenção para os lugares mais relevantes e urgentes de explorar "
+"(atualmente disponível apenas para cidades brasileiras)."
+
+#: app/templates/explore_cities.html:19
+msgid "Cities with the fewer hospital beds"
+msgstr "Cidades com menos leitos hospitalares"
+
+#: app/templates/explore_cities.html:20
+msgid ""
+"The places below have the fewer number of hopspital beds to treat "
+"patients with respitatory complications (per 100 thousand inhabitants)."
+msgstr ""
+"Os lugares abaixo têm o menor número de leitos hospitalares para tratar "
+"pacientes com complicações respiratórias (por 100 mil habitantes)."
+
+#: app/templates/explore_cities.html:21
+msgid "Pulmonology beds (per 100k inhabitants)"
+msgstr "Leitos de pneumologia (por 100 mil habitantes)"
+
+#: app/templates/explore_cities.html:24
+msgid "Cities by COVID-19 deaths per 100 thousand inhabitants"
+msgstr "Cidades com mais mortes por COVID-19 por 100 mil habitantes"
+
+#: app/templates/explore_cities.html:25 app/templates/explore_countries.html:26
+msgid "The places below have the highest rates of deaths due to COVID-19."
+msgstr "Os lugares abaixo têm as maiores taxas de morte por COVID-19."
+
+#: app/templates/explore_cities.html:26
+msgid "Deaths (per 100k inhabitants)"
+msgstr "Mortes (por 100 mil habitantes)"
+
+#: app/templates/explore_cities.html:29
+msgid "Cities by weekly growth rate of COVID-19 deaths"
+msgstr "Cidades com maior taxa de crescimento semanal de mortes por COVID-19"
+
+#: app/templates/explore_cities.html:30
+msgid ""
+"The places below have the highest growth rates of deaths in relation to "
+"the previous week (in percentage points)."
+msgstr ""
+"Os lugares abaixo têm as maiores taxas de crescimento de mortes em "
+"relação à semana anterior (em porcentagem)."
+
+#: app/templates/explore_cities.html:31
+#, python-format
+msgid "Weekly growth of deaths (%%)"
+msgstr "Cresimento semanal de mortes (%%)"
+
+#: app/templates/components/footer.html:19
+#: app/templates/components/navbar.html:41
+#: app/templates/explore_countries.html:4
+#: app/templates/explore_countries.html:10
+msgid "Explore Countries"
+msgstr "Explorar Países"
+
+#: app/templates/explore_countries.html:12
+msgid ""
+"The pandemic has affected the entire world. However, some countries are "
+"more vulnerable than others. This page aims to draw attention to the most"
+" relevant and urgent countries to explore."
+msgstr ""
+"A pandemia tem vindo a afetar o mundo inteiro. Porém, alguns países são "
+"mais vulneráveis que outros. Esta página tem como objetivo chamar a "
+"atenção para os países mais relevantes e urgentes de explorar."
+
+#: app/templates/explore_countries.html:20
+msgid "Countries by highest elderly population"
+msgstr "Países com populações mais idosas"
+
+#: app/templates/explore_countries.html:21
+msgid ""
+"The countries below have the highest percentages of people over 65 years "
+"of age. This population is in greater risk of developing severe symptoms "
+"if infected by COVID-19."
+msgstr ""
+"Os países abaixo têm as maiores porcentagens de pessoas acima dos 65 anos"
+" de idade. Esta população é a que apresenta mais risco de desenvolver "
+"sintomas severos em caso de infeção por COVID-19."
+
+#: app/templates/explore_countries.html:22
+#, python-format
+msgid "Population ages 65 and above (%% of total population)"
+msgstr "População com 65 anos ou mais (%% da população total)"
+
+#: app/templates/explore_countries.html:25
+msgid "Countries by COVID-19 deaths per 100 thousand inhabitants"
+msgstr "Países com mais mortes por COVID-19 por 100 mil habitantes"
+
+#: app/templates/explore_countries.html:27
+msgid "Deaths per 100k inhabitants"
+msgstr "Mortes por 100mil habitantes"
+
+#: app/templates/explore_countries.html:30
+msgid "Countries by weekly growth rate of COVID-19 deaths"
+msgstr "Países com maior taxa de crescimento semanal de mortes por COVID-19"
+
+#: app/templates/explore_countries.html:31
+msgid ""
+"The places below have the highest rates of growth in total deaths "
+"(percent increase over previous week)."
+msgstr ""
+"Os lugares abaixo tem a maior taxa de crescimento de total de mortes "
+"(aumento da porcentagem sobre a ultima semana)"
+
+#: app/templates/explore_countries.html:32
+#, python-format
+msgid "Weekly growth in deaths (%%)"
+msgstr "Crescimento semanal em mortes (%%)"
+
+#: app/templates/faq.html:3 app/templates/faq.html:30
+msgid "Frequently Asked Questions"
+msgstr "Perguntas Frequentes"
+
+#: app/templates/faq.html:37
+msgid "How can I help the project?"
+msgstr "Como posso ajudar o projeto?"
+
+#: app/templates/faq.html:41
+msgid "Even if you don't have technical experience, you can help by:"
+msgstr "Mesmo se você não tiver experiência técnica, pode ajudar por:"
+
+#: app/templates/faq.html:43
+msgid "Spreading the word about the project and the resources that we publish;"
+msgstr "Divulgando o projeto e os recursos que nós publicamos;"
+
+#: app/templates/faq.html:44
+msgid "Finding and reporting bugs in the website;"
+msgstr "Encontrando e reportando bugs no site;"
+
+#: app/templates/faq.html:45
+msgid "Translating pages to languages you know well;"
+msgstr "Traduzindo páginas do site para línguas que você domina;"
+
+#: app/templates/faq.html:48
+msgid "If you want to help with coding and analyses:"
+msgstr "Se quiser ajudar com programação e analises:"
+
+#: app/templates/faq.html:50
+msgid "Consider joining the"
+msgstr "Considere se juntar ao projeto"
+
+#: app/templates/faq.html:50
+msgid "Data Science for a Cause project;"
+msgstr "Ciência de Dados por uma Causa;"
+
+#: app/templates/faq.html:52
+msgid "Get in"
+msgstr "Entre em"
+
+#: app/templates/faq.html:52
+msgid "touch"
+msgstr "contato"
+
+#: app/templates/faq.html:53
+msgid "to be included in our development repository."
+msgstr "para ser incluíd@ no nosso repositório de desenvolvimento."
+
+#: app/templates/faq.html:61
+msgid "How to interpret the Comparison Charts?"
+msgstr "Como interpretar os Gráficos de Comparação?"
+
+#: app/templates/faq.html:66
+msgid ""
+"The charts are intended to provide a simple way to compare the evolution "
+"of COVID-19\n"
+"      in pairs of countries that are in different stages of the epidemic."
+" We use the reported\n"
+"      deaths to align the data of both countries, which allows presenting"
+" them as if they were at the same\n"
+"      stage of the epidemic. For example, the chart below compares Brazil"
+" and Italy. When it\n"
+"      was created, Italy was about 28 days ahead of Brazil in terms of "
+"the epidemic's\n"
+"      progression. Brazil's line (blue) crosses Italy's line (red) at "
+"around 1,000 deaths.\n"
+"      Judging by the trends of the death lines, Brazil is expected to "
+"experience a less severe\n"
+"      growth in deaths than Italy did in the same time period after the "
+"disease's arrival. However, always be careful about drawing conclusions\n"
+"      based on these trends. The epidemic's dynamic is always changing. "
+"Different\n"
+"      countries have different means and strategies to cope with the "
+"issue, which also might\n"
+"      change over time. For more information about relevant news in each "
+"country, check out\n"
+"      the events timeline."
+msgstr ""
+"Os gráficos são pensados para fornecer uma forma simples de comparar a "
+"evolução da COVID-19 em pares de países que estão em diferentes estágios "
+"da epidemia. Nós usamos as mortes reportadas para alinhar os dados dos "
+"dois países, o que permite apresentá-los como se estivessem no mesmo "
+"estágio da epidemia. Por exemplo, o gráfico abaixo compara o Brasil e "
+"Itália. Quando o gráfico foi gerado, Itália estava cerca de 28 dias à "
+"frente do Brasil em termos da progressão da epidemia. A linha do Brasil "
+"(azul) corta a linha de Itália (vermelho) perto das 1.000 mortes. "
+"Julgando pelas tendências das linhas de morte, espera-se que o Brasil "
+"experiencie um crescimento menos severo de mortes do que Itália no mesmo "
+"intervalo de tempo após a chegada da doença. Contudo, é preciso cuidado a"
+" tirar conclusões baseadas nestas tendências. A dinâmica da epidemia muda"
+" constantemente. Países diferentes têm meios e estratégias diferentes "
+"para lidar com a situação, o que também pode variar ao longo do tempo. "
+"Para mais informação sobre notícias relevantes em cada país, veja os "
+"eventos na linha do tempo."
+
+#: app/templates/faq.html:85
+msgid "Why is data aligned based on deaths?"
+msgstr "Por que os dados são alinhados com base nas mortes?"
+
+#: app/templates/faq.html:90
+msgid ""
+"The number of deaths is currently the most accurate metric to assess the "
+"epidemic\n"
+"      profile of a country. The number of confirmed cases varies too much"
+" in relation to the number of real cases, depending on\n"
+"      how countries perform tests to identify infected people. Although "
+"on purpose\n"
+"      underreporting of deaths has been suspected in some countries, the "
+"variation in\n"
+"      death numbers is still smaller than for number of cases. For this "
+"reason, we use the number of deaths\n"
+"      to align the curves in the charts and the events in the timelines."
+msgstr ""
+"Neste momento, o número de mortes é a métrica mais acurada para avaliar o"
+" perfil epidêmico de um país. O número de casos confirmados varia "
+"demasiado em relação ao número de casos reais dependendo de como os "
+"países efetuam testes para identificar pessoas infetadas. Apesar de haver"
+" suspeitas de subnotificação intencional de mortes em alguns países, a "
+"variação do número de mortes ainda é menor que a do número de casos. Por "
+"isso, nós usamos o número de mortes para alinhar as curvas nos gráficos e"
+" os eventos nas linhas do tempo."
+
+#: app/templates/faq.html:102
+msgid "What are the data sources?"
+msgstr "Quais são as fontes dos dados?"
+
+#: app/templates/faq.html:106
+msgid "The data are collected from:"
+msgstr "Os dados são coletados das seguintes fontes:"
+
+#: app/templates/faq.html:108
+msgid "Countries' epidemic statistics"
+msgstr "Estatísticas da epidemia para os vários países"
+
+#: app/templates/faq.html:109
+msgid "Our World in Data"
+msgstr "Our World in Data"
+
+#: app/templates/faq.html:110
+msgid "Timeline events"
+msgstr "Eventos das linhas do tempo"
+
+#: app/templates/faq.html:112
+msgid "Johns Hopkins' COVID-19 Situation Reports"
+msgstr "Johns Hopkins' COVID-19 Situation Reports"
+
+#: app/templates/faq.html:113
+msgid "Brazilian cities' epidemic statistics"
+msgstr "Estatísticas da epidemia para as cidades brasileiras"
+
+#: app/templates/faq.html:115
+msgid "Countries' socioeconomic statistics"
+msgstr "Estatísticas socioeconômicas para os vários países"
+
+#: app/templates/faq.html:118
+msgid "Countries' air pollution data"
+msgstr "Dados de poluição do ar para os vários países"
+
+#: app/templates/faq.html:120
+msgid "Brazilian health system data"
+msgstr "Dados sobre o sistema de saúde brasileiro"
+
+#: app/templates/faq.html:122
+msgid "Statistics for Brazilian socioeconomic variables"
+msgstr "Estatisticas para variaveis socioeconomicas brasileiras"
+
+#: app/templates/faq.html:124
+msgid "Brazil's socioeconomic statistics"
+msgstr "Estatísticas socioeconômicas para o Brasil"
+
+#: app/templates/faq.html:127
+msgid ""
+"If you need these data integrated, you can find the files and more "
+"information on:"
+msgstr ""
+"Se você precisar dos dados integrados, pode encontrar os arquivos e mais "
+"informação em:"
+
+#: app/templates/faq.html:137
+msgid "Why can't I compare two arbitrary countries?"
+msgstr "Por que não posso comparar quaisquer dois países?"
+
+#: app/templates/faq.html:142
+msgid ""
+"Currently, we only offer comparisons for countries with a difference in "
+"days greater than 14\n"
+"      (based on the death curves' alignment), or for countries with "
+"similar socioeconomic realities.\n"
+"      We believe these are the most relevant combinations to analyse, but"
+" we might consider expanding\n"
+"      the interface as the project develops."
+msgstr ""
+"Atualmente, nós só oferecemos comparações para países com uma diferença "
+"em dias maior que 14 (tendo como base o alinhamento das curvas de "
+"mortes), ou para países com realidades socioeconômicas semelhantes. "
+"Acreditamos que estas são as combinações mais relevantes, mas poderemos "
+"considerar expandir a interface à medida que o projeto se desenvolver."
+
+#: app/templates/faq.html:152
+msgid "What are other online good sources about COVID-19?"
+msgstr "Que outras boas fontes sobre a COVID-19 estão disponíveis online?"
+
+#: app/templates/faq.html:156
+msgid ""
+"There are many websites offering great data and analyses to follow the "
+"pandemic. Some of our favorites are:"
+msgstr ""
+"Existem muitos sites oferecendo excelentes dados e análises para "
+"acompanhar a pandemia. Alguns dos nossos favoritos são:"
+
+#: app/templates/index.html:3
+msgid "Home"
+msgstr "Início"
+
+#: app/templates/index.html:9
+msgid "How Is My Country Doing?"
+msgstr "Como Está o Meu País?"
+
+#: app/templates/index.html:11
+msgid ""
+"This project aims to inform researchers, decision makers, and the general"
+" public about the most\n"
+"    promising strategies to tackle COVID-19 pandemic. By providing high-"
+"quality data on the variables that influence the\n"
+"    spread and the lethality of the infection in the world&#39;s "
+"countries, including adopted public policies, we hope\n"
+"    that the experiences and initiatives of the countries that are ahead "
+"in the epidemic can be useful to those\n"
+"    where the disease arrived latter. Moreover, we present analyses "
+"considering variables that might be of\n"
+"    particular importance to developing countries."
+msgstr ""
+"Este projeto visa informar pesquisadores, tomadores de decisão e o "
+"público geral sobre as estratégias mais promissoras para enfrentar a "
+"pandemia de COVID-19. Fornecendo dados de qualidade sobre as variáveis "
+"que influenciam o alastramento e a letalidade da infeção nos vários "
+"países do mundo, incluindo as políticas públicas adotadas por cada um "
+"deles, esperamos que as experiências e iniciativas dos países que estão "
+"mais à frente na epidemia possam ser úteis para aqueles em que a doença "
+"chegou depois. Para além disso, apresentamos análises considerando "
+"variáveis que podem ser de particular importância para os países em "
+"desenvolvimento."
+
+#: app/templates/index.html:25
+msgid "Compare countries"
+msgstr "Comparar países"
+
+#: app/templates/index.html:26
+msgid "The menu below gives access to our country comparison interface."
+msgstr "O menu abaixo dá acesso ao nosso interface de comparação de países."
+
+#: app/templates/index.html:42
+msgid "Compare cities"
+msgstr "Comparar cidades"
+
+#: app/templates/index.html:43
+msgid "The menu below gives access to our city comparison interface."
+msgstr "O menu abaixo dá acesso ao nosso interface de comparação de cidades."
+
+#: app/templates/index.html:43
+msgid "(only Brazilian cities currently)"
+msgstr "(atualmente disponível apenas para cidades brasileiras)"
+
+#: app/templates/macros.html:12 app/templates/macros.html:59
+#: app/templates/macros.html:153
+msgid "Place"
+msgstr "Lugar"
+
+#: app/templates/macros.html:13 app/templates/macros.html:60
+msgid "Similarity"
+msgstr "Semelhança"
+
+#: app/templates/macros.html:14
+msgid "Difference in days"
+msgstr "Diferença em dias"
+
+#: app/templates/macros.html:15 app/templates/macros.html:61
+msgid "Link to Comparison Charts"
+msgstr "Link para os Gráficos de Comparação"
+
+#: app/templates/macros.html:16
+msgid "Link to Timeline"
+msgstr "Link para a Linha do Tempo"
+
+#: app/templates/macros.html:26 app/templates/macros.html:34
+#: app/templates/macros.html:69
+msgid "See Comparison Charts"
+msgstr "Ver Gráficos de Comparação"
+
+#: app/templates/macros.html:27 app/templates/macros.html:35
+msgid "See Timeline"
+msgstr "Ver Linha do Tempo"
+
+#: app/templates/macros.html:90 app/templates/macros.html:121
+msgid "Variable"
+msgstr "Variável"
+
+#: app/templates/macros.html:91 app/templates/macros.html:122
+msgid "Value"
+msgstr "Valor"
+
+#: app/templates/macros.html:92
+msgid "Change"
+msgstr "Alteração"
+
+#: app/templates/macros.html:123
+msgid "Score"
+msgstr "Pontuação"
+
+#: app/templates/macros.html:155
+msgid "Link to Report"
+msgstr "Link para o Relatório"
+
+#: app/templates/macros.html:163
+msgid "See Report"
+msgstr "Ver Relatório"
+
+#: app/templates/response.html:7
+msgid "Assessing countries' responses"
+msgstr "Avaliando as respostas dos países"
+
+#: app/templates/response.html:8
+msgid ""
+"The world's countries have adopted different strategies to minimize the "
+"damages caused by the epidemic. Public policies vary in stringency and "
+"duration from country to country. Here we present some tools to measure "
+"the efficiency of each country's strategy."
+msgstr ""
+"Os países do mundo têm adotado diferentes estratégias para minimizar os "
+"danos causados pela epidemia. As políticas públicas variam em rigidez e "
+"duração de país para país. Nesta página, nós apresentamos algumas "
+"ferramentas para medir a eficiência da estratégia de cada país."
+
+#: app/templates/response.html:14
+msgid "The importance of social isolation"
+msgstr "A importância do isolamento social"
+
+#: app/templates/response.html:18
+msgid ""
+"The chart below shows the correlation between the compliance with 'stay-"
+"at-home' recommendations (measured by the change in relation to expected "
+"automotive pollution), and their outcomes (measured in total number of "
+"deaths). There is a strong inverse correlation between social isolation "
+"(less pollution) and deaths. This means the more people stay at home, the"
+" less people become infected and die."
+msgstr ""
+"O gráfico abaixo mostra a correlação entre a observância das "
+"recomendações de 'fique em casa' (medida pela diferença de poluição "
+"automotiva em relação à esperada) e os seus resultados (medidos pelo "
+"número total de mortes). Existe uma correlação inversa forte entre o "
+"isolamento social (menos poluição) e a quantidade de mortes. Isto é, "
+"quanto mais as pessoas ficam em casa, menos são infetadas e menos morrem."
+
+#: app/templates/response.html:27
+msgid "Measuring countries' responses"
+msgstr "Medindo as respostas dos países"
+
+#: app/templates/response.html:28
+msgid ""
+"The chart below shows the automotive pollution and the total deaths by "
+"COVID-19 since the biginning of the year for the selected country. A "
+"reduction in pollution can be observed in countries that are effectively "
+"implementing quarantine and lockdown measures."
+msgstr ""
+"O gráfico abaixo mostra a poluição automotiva e o total de mortes por "
+"COVID-19 desde o início do ano para o país selecionado. Uma redução na "
+"poluição pode ser observada em países que estão implementando com "
+"eficiência medidas de quarentena e confinamento."
+
+#: app/templates/submit_event.html:16
+msgid "Report Event"
+msgstr "Reportar Evento"
+
+#: app/templates/submit_event.html:22
+msgid ""
+"\n"
+"                    Here you contribute by reporting any important events"
+" about the epidemic in these countries.\n"
+"                    After verification, these events will be added to the"
+" timeline of the corresponding country.\n"
+"                "
+msgstr ""
+"Aqui você pode contribuir reportando quaisquer eventos importantes sobre "
+"a epidemia nestes países. Após verificação, esses eventos serão "
+"adicionados à linha do tempo do país correspondente."
+
+#: app/templates/submit_event_success.html:7
+msgid "Event submitted successfully!"
+msgstr "Evento submetido com sucesso!"
+
+#: app/templates/submit_event_success.html:12
+msgid ""
+"Thank you for your contribution! Your event will soon be reviewed by our "
+"team and displayed on this timeline."
+msgstr ""
+"Agradecemos a sua contribuição! Em breve, o seu evento será revisado pela"
+" nossa equipe e será exibido nesta linha do tempo."
+
+#: app/templates/timeline.html:11
+#, python-format
+msgid ""
+"Timeline of major events related to the COVID-19 epidemic in %(place)s "
+"and %(place2)s"
+msgstr ""
+"Linha do tempo dos principais eventos relacionados com a epidemia de "
+"COVID-19 no/na/em %(place)s e no/na/em %(place2)s."
+
+#: app/templates/timeline.html:14
+#, python-format
+msgid ""
+"Date alignment is based on the proximity of the curves of number of "
+"deaths. By matching the number of cumulative deaths of the two countries,"
+" it is possible to predict what could happen in %(place)s if the course "
+"of actions is similar to %(place2)s's."
+msgstr ""
+"O alinhamento das datas é baseado na proximidade das curvas de número de "
+"mortes. Emparelhando o número de mortes cumulativas dos dois países, é "
+"possível prever o que pode acontecer no/na/em %(place)s se as medidas "
+"adotadas forem semelhantes às do/da/de %(place2)s."
+
+#: app/templates/timeline.html:101
+msgid "Source"
+msgstr "Fonte"
+
+#: app/templates/timeline.html:129
+msgid ""
+"Here you can contribute by reporting any important events about the "
+"epidemic in these countries. After verification, these events will be "
+"added to the timeline of the corresponding country."
+msgstr ""
+"Aqui você pode contribuir reportando quaisquer eventos importantes sobre "
+"a epidemia nestes países. Após verificação, esses eventos serão "
+"adicionados à linha do tempo do país correspondente."
+
+#: app/templates/timeline.html:135
+msgid "Event type"
+msgstr "Tipo de evento"
+
+#: app/templates/timeline.html:136
+msgid "– Select the option that better suits the event."
+msgstr "– Selecione a opção que melhor se adequa ao evento."
+
+#: app/templates/timeline.html:138
+msgid "Beginning of quarantine"
+msgstr "Início da quarentena"
+
+#: app/templates/timeline.html:139
+msgid "Government mesures"
+msgstr "Medidas governamentais"
+
+#: app/templates/timeline.html:140
+msgid "Health system overload"
+msgstr "Sobrecarga do sistema de saúde"
+
+#: app/templates/timeline.html:141
+msgid "End of quarantine"
+msgstr "Fim da quarentena"
+
+#: app/templates/timeline.html:146
+msgid "Event description"
+msgstr "Descrição do evento"
+
+#: app/templates/timeline.html:154
+msgid "Event source"
+msgstr "Fonte do evento"
+
+#: app/templates/timeline.html:155
+msgid "– Post a link to any news about this event."
+msgstr "– Publique um link de alguma notícia sobre este evento."
+
+#: app/templates/timeline.html:162
+msgid "Sending event..."
+msgstr "Enviando evento..."
+
+#: app/templates/timeline.html:165
+msgid "Event submitted!"
+msgstr "Evento submetido!"
+
+#: app/templates/timeline.html:166
+msgid ""
+"Thank you for your contribution! Your event will soon be reviewed by our "
+"team and displayed\n"
+"                        on this timeline."
+msgstr ""
+"Obrigado pela sua contribuição! Seu evento logo será avaliado pelo nosso "
+"time e exibido nessa linha do tempo"
+
+#: app/templates/components/footer.html:11
+msgid "An initiative by the Data Science for a Cause group"
+msgstr "Uma iniciativa do grupo Ciência de Dados por uma Causa"
+
+#: app/templates/components/footer.html:16
+msgid "Explore"
+msgstr "Explorar"
+
+#: app/templates/components/footer.html:18
+msgid "Brazil"
+msgstr "Brasil"
+
+#: app/templates/components/footer.html:20
+#: app/templates/components/navbar.html:42
+msgid "Explore Cities"
+msgstr "Explorar Cidades"
+
+#: app/templates/components/footer.html:21
+msgid "Country Response"
+msgstr "Resposta do País"
+
+#: app/templates/components/footer.html:25
+msgid "Featured"
+msgstr "Destaques"
+
+#: app/templates/components/footer.html:43
+msgid "About"
+msgstr "Sobre"
+
+#: app/templates/components/footer.html:45
+msgid "About HIMCD"
+msgstr "Sobre o CEMP"
+
+#: app/templates/components/footer.html:46
+msgid "Data Science for a Cause"
+msgstr "Ciência de Dados por uma Causa"
+
+#: app/templates/components/footer.html:56
+msgid "With the support of"
+msgstr "Com o apoio de"
+
+#: app/templates/components/navbar.html:13
+msgid "Select country"
+msgstr "Selecionar país"
+
+#: app/templates/components/navbar.html:28
+msgid "Select city"
+msgstr "Selecionar cidade"
+
+#: app/templates/components/navbar.html:43
+msgid "Countries' Response"
+msgstr "Resposta dos Países"
+
+#: app/templates/components/navbar.html:44
+msgid "Variable Analysis"
+msgstr "Análise de Variáveis"

@@ -1,0 +1,21 @@
+{% macro render(title, description, form_label, options, submit, action='/') -%}
+<div class="col-md-6 p-3 d-flex mx-auto flex-column justify-content-between">
+      <div class="text-center">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}<br></p>
+      </div>
+      <div class="container">
+        <form action="{{ action }}">
+          <div class="form-group">
+            <label>{{ form_label }}</label>
+            <select class="form-control" name="place" id="placeSelect">
+              {% for option in options %}
+              <option value={{option}}>{{option}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="submit" class="btn btn-primary" value="{{ submit }}">
+        </form>
+      </div>
+    </div>
+{%- endmacro %}

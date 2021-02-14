@@ -1,0 +1,15 @@
+{% extends "layout.html.jinja" %}
+{% set titulo =  _('Example page')  %}
+
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+    <div class="content col-md-12">
+        <h2>{{ _('Example Page') }}</h2>
+        <p>{{ _('This is an example page, copy it and edit to make a new one') }}</p>
+    </div>
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

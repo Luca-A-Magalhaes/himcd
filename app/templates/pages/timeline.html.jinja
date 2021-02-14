@@ -1,0 +1,97 @@
+{% extends "layout.html.jinja" %}
+{% set titulo =  _('Timeline %(place)s x %(place2)s', place=place, place2=place2)  %}
+
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='stylesheets/timeline.css')}}">
+{% endblock%}
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+<div class="container">
+
+<div class="row row-timeline justify-content-center">
+    <div class="col-xs-12 col-xl-10">
+        <h2>{{ _('Timeline of major events related to the epidemic in %(place)s and %(place2)s', place=place, place2=place2) }}
+        </h2>
+        <div class="py-4">
+            <p>{{ _("Date alignment is based on the proximity of the curves of number of deaths. By matching the number of cumulative deaths of the two places, it is possible to predict what could happen in %(place)s if the course of actions is similar to %(place2)s's.", place=place, place2=place2) }}
+            </p>
+        </div>
+    </div>
+
+    <div class="row justify-content-center text-center">
+        <div class="col-6">
+            <h3>{{ place }}</h3>
+        </div>
+        <div class="col-6">
+            <h3>{{ place2 }}</h3>
+        </div>
+    </div>
+
+    <div class="container gutter-bottom">
+        {% for row in timeline %}
+        <div class="row justify-content-center">
+
+
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <span class="timeline-event link-modal warning-level-{{ row['Highlight']|int }}"
+                    data-highlight="warning-level-{{ row['Highlight']|int }}" data-source="{{ row['Source'] }}"
+                    data-title="Event {{ country }}" data-description="{{ row['Desc'] }}"
+                    data-content="{{ row['FullText'] }}">
+                    {{ row['Desc'] }}
+                </span>
+            </div>
+
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <span class="text-center">
+                    {% if row['Date'] %}
+                    <b>{{ row['Date'] | parse_stringDates_formats }}</b>
+                    {{ row['TotalDeaths']|int }}&nbsp;deaths
+                    {% endif %}
+
+                </span>
+            </div>
+
+            <div class="col-1 d-flex justify-content-center align-items-center timeline-line">
+                <span class="circle"></span>
+            </div>
+
+            <div class="col-1 d-flex justify-content-center align-items-center">
+                <span class="text-center">
+                    <b>{{ row['Date2']|parse_stringDates_formats }}</b>
+                    {% if row['Date2'] %}
+                    {{ row['TotalDeaths2']|int }}&nbsp;deaths
+                    {% endif %}
+
+                </span>
+            </div>
+
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <span class="timeline-event link-modal warning-level-{{ row['Highlight2']|int }}"
+                    data-highlight="warning-level-{{ row['Highlight2']|int }}" data-source="{{ row['Source2'] }}"
+                    data-title="Event {{ country2 }}" data-description="{{ row['Desc2'] }}"
+                    data-content="{{ row['FullText2'] }}">
+                    {{ row['Desc2'] }}
+                </span>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% include "components/modal_report_event.html.jinja"  %}
+{% include "components/modal_detail_event.html.jinja"  %}
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector("meta[name='viewport']").setAttribute('content', 'width=1024');
+    });
+</script>
+
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

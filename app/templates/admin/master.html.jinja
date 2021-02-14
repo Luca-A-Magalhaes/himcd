@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+
+{% block access_control %}
+{% if current_user.is_authenticated %}
+<div class="dropdown pull-right">
+    <span class="btn dropdown-toggle" data-toggle="dropdown" id="loginMenu">
+        <span class="icon-user"></span> {{ current_user.email }} <span class="caret"></span>
+    </span>
+    <ul class="dropdown-menu">
+        <li class="dropdown-item"><a href="{{ url_for('admin.logout_view') }}">Log out</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

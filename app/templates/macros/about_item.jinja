@@ -1,0 +1,10 @@
+{% macro render(title, description) -%}
+<div class="row d-flex flex-column align-items-center">
+    <div class="col-md-10">
+        <h3>{{ title }}</h3>
+        <p class="px-3">
+            {{ description }}
+        </p>
+    </div>
+</div>
+{%- endmacro %}

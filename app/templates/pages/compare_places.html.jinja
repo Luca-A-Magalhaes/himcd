@@ -1,0 +1,140 @@
+{% extends "layout.html.jinja" %}
+{% set titulo = _('%(place)s x %(place2)s', place=place, place2=place2) %}
+{% import "macros/list_socio_stats.jinja" as list_socio_stats %}
+{% import "macros/list_live_stats.jinja" as list_live_stats %}
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+<div class="container">
+    <div class="row gutter-bottom">
+        <div class="col text-center">
+            <h1 class="gutter-bottom">{{ place }} vs. {{ place2 }} – Comparison Charts</h1>
+        </div>
+    </div>
+
+    <div class="row text-center gutter-bottom">
+        <div class="col-md">
+            <h4>{{ _('Comparing cases and deaths') }}</h4>
+            <p>{{ _("""The chart below shows the curves of confirmed cases (dotted lines) and deaths (solid lines) in %(place)s and
+    %(place2)s over time. The curves for number of deaths were aligned to facilitate the comparison of the
+    progression of the epidemic. Confirmed cases and deaths are in logarithmic scale. You can change that and other chart specifications in the 'Configure chart' button below.""", place=place, place2=place2) }}
+            </p>
+            <img id="img_comp" class="responsive-img"
+                src="{{ url_for('figcomparerates', place = place, place2=place2, level=level) }}"
+                alt="{{ _('Comparison Chart') }}">
+            <br>
+            <a data-toggle="collapse" href="#setupChart" role="button" aria-expanded="false" aria-controls="setupChart">
+                <b>{{ _('Configure chart') }}</b>
+            </a>
+            <div class="collapse px-5" id="setupChart">
+                <form>
+                    <b>{{ _('Scale:') }}</b>
+                    <input type="radio" id="log" name="scale" value="log" checked>
+                    <label for="log">{{ _('Log') }}</label>
+                    <input type="radio" id="lin" name="scale" value="lin">
+                    <label for="lin">{{ _('Linear') }}</label> <br>
+                    <b>{{ _('Y axis:') }}</b>
+                    <input type="radio" id="total" name="y" value="total" checked>
+                    <label for="log">{{ _('Total') }}</label>
+                    <input type="radio" id="per1m" name="y" value="per1m">
+                    <label for="lin">{{ _('Total per 100k inhabitants') }}</label> <br>
+                    <b>{{ _('Curve alignment:') }}</b>
+                    <input type="radio" id="now" name="priority" value="now" checked>
+                    <label for="now">{{ _('Similarity index') }}</label>
+                    <input type="radio" id="start" name="priority" value="start">
+                    <label for="start">{{ _('10th death') }}</label> <br>
+                    <button type="button" id="confirm" class="btn btn-primary">{{ _('Confirm') }}</button>
+                </form>
+            </div>
+
+            <script>
+                const button = document.getElementById("confirm");
+                button.addEventListener(
+                    'click',
+                    function () {
+                        const image = document.getElementById('img_comp')
+                        const scale = document.querySelector('input[name="scale"]:checked').value;
+                        const y = document.querySelector('input[name="y"]:checked').value;
+                        const priority = document.querySelector('input[name="priority"]:checked').value;
+                        image.src = "/figcomparerates/" + "{{place + "/" + place2 + "/" + level + "/"}}" + scale + "/" + y + "/static/" + priority + ".png"
+                    }
+                )
+            </script>
+
+        </div>
+        <div class="col-md">
+            <h4>{{ _('Comparing growth rates') }}</h4>
+            <p>{{ _('The charts below show the weekly growth of confirmed cases (top) and deaths (bottom) in %(place)s and %(place2)s over time.', place=place, place2=place2) }}</p>
+            <img class="responsive-img"
+                src="{{ url_for('figcomparedblrates', place = place, place2=place2, level=level) }}"
+                alt="{{ _('Comparing growth rates') }}r">
+        </div>
+    </div>
+
+    {% if html_compare_resp %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>{{ _('Comparing responses') }}</h4>
+            <p>{{ _("The chart below shows the stringency index of the responses to the epidemic and the cumulative deaths curve in each country over time.") }}
+            </p>
+        </div>
+        <div class="col-12 text-center">
+            <p class="text-center">
+                {{ html_compare_resp|safe }}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if html_compare_resp_econ %}
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>{{ _('Comparing economic responses') }}</h4>
+            <p>{{ _("The chart below shows the stringency index of the economic responses and the cumulative deaths curve in each country over time.") }}
+            </p>
+        </div>
+        <div class="col-12 text-center">
+            <p class="text-center">
+                {{ html_compare_resp_econ|safe }}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="text-center">
+            <h4>{{ _('Comparing current statistics of the epidemic') }}</h4>
+            <p>{{ _('The statistics below are based on the latest processed data. Most up-to-date data is integrated once a day. Change is the variation of the value in relation to the previous day (in percentage points).') }}
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">
+            {{ list_live_stats.render(_('Current epidemic statistics for %(place)s', place=place), "", ls_place, place=place) }}
+        </div>
+        <div class="col-md">
+            {{ list_live_stats.render(_('Current epidemic statistics for %(place)s', place=place2), "", ls_place2, place=place2) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h4>{{ _('Comparing socioeconomic factors between the two %(level)s', level=level) }}</h4>
+            <p>{{ _('For data sources, check our FAQ section. The score is based on how the %(place_name)s compares with other %(level)s (decile).', place_name='country' if level=='countries' else 'city', level=level) }}
+            </p>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md">{{ list_socio_stats.render(_('Current general statistics for %(place)s', place=place),
+                        '', ss_place, place=place) }}</div>
+        <div class="col-md">{{ list_socio_stats.render(_('Current general statistics for %(place)s', place=place2),
+                        '', ss_place2, place=place2) }}</div>
+    </div>
+</div>
+
+
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

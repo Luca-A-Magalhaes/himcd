@@ -1,0 +1,35 @@
+{% extends "layout.html.jinja" %}
+{% set titulo =  _('About Us')  %}
+{% import "macros/about_item.jinja" as about_item %}
+{% import "macros/place_selection.jinja" as place_selection %}
+
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+    <div class="content col-md-12">
+        {% set title = _('Data sources') %}
+        {% set description = _('Check our FAQ') %}
+        {{ about_item.render(title, description) }}
+
+        {% set title = _('The team') %}
+        {% set description = _('The people behind this website are:') %}
+        {{ about_item.render(title, description) }}
+
+        {% set title = "" %}
+        {% set description = '''
+                <ul class="px-6">
+                    <li>Guilmour Rossi</li>
+                    <li>Luca Almeida</li>
+                    <li>Luiz Celso Gomes Jr</li>
+                    <li>Nicole Kobayashi</li>
+                    <li>Vitor Corrêa</li>
+                    <li>Zulmira Coimbra</li>
+                </ul>
+        ''' %}
+        {{ about_item.render(title, description) }}
+    </div>
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

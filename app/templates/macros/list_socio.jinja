@@ -1,0 +1,28 @@
+{% macro render(title, description='', items=[], place="", level='countries') -%}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ title }}</h5>
+        <p class="card-text">{{ description }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col"><span>{{ _('Place') }}</span></div>
+                <div class="col text-center"><span>{{ _('Similarity') }}</span></div>
+                <div class="col text-center"><span>{{ _('Link to comparison charts') }}</span></div>
+            </div>
+        </li>
+        {% for splace in items %}
+        <li class="list-group-item" style="background-color: {{ '#eee' if (loop.index%2) else '#fff' }};">
+            <div class="row">
+                <div class="col"><span>{{ splace[0] }}</span></div>
+                <div class="col text-center"><span>{{ "{:.2f}".format(splace[-1]) }}</span></div>
+                <div class="col text-center"><span><a class="card-link"
+                            href="{{ url_for('comparison', place=place, place2=splace[0], level=level) }}"><i
+                                class="fas fa-chart-bar"></i> {{ _('See Comparison Charts') }}</a></span></div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{%- endmacro %}

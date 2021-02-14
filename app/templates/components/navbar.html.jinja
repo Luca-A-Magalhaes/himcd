@@ -1,0 +1,47 @@
+{% block theme_navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav-menu fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+        <img src="https://vdn.libreflix.org/cdc/himcd/himcd_logo.png" alt="" width="150px;">
+        </a>
+        <div class="navbar-toggler" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="menu-img" src="{{ url_for('.static', filename='img/menu.png') }}" alt="Menu">
+        </div>
+        <div class="navbar-collapse collapse justify-content-end"  id="menu">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown position-relative">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ country if country else _("Select country") }}
+                    </a>
+                    <div class="dropdown-menu dropdown-scroll" style="min-width: 20em;" aria-labelledby="navbarDropdown">
+                        <div class="px-4 py-2">
+                            <input id="searchFilter" oninput="filterResults(this)" type="search" class="form-control search" placeholder="Search" autofocus="autofocus" autocomplete="off">
+                        </div>
+                        <div id="countries-list">
+                            {% for scountry in countries %}
+                            <a href="{{ url_for('place', place=scountry) }}" class="dropdown-item {{ 'active' if country == scountry }}">{{ scountry }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="{{ url_for('faq') }}" class="nav-link">{{ _('FAQ') }}</a></li>
+                <li class="nav-item"><a href="{{ url_for('aboutUs') }}" class="nav-link">{{ _('About Us') }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        function filterResults(caller) {
+            const search = caller.value.toLowerCase()
+            const list_to_filter = caller.parentElement.nextElementSibling.children
+            for (let element of list_to_filter) {
+                if (element.textContent.toLowerCase().includes(search)) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            }
+        };
+    </script>
+</nav>
+{% endblock %}

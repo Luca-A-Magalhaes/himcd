@@ -1,0 +1,59 @@
+{% extends "bootstrap/base.html" %}
+
+{% if type != "single_post"%}
+{%set og_image = "https://vdn.libreflix.org/cdc/himcd/share-himcd.jpg" %}
+{%set og_title = "HIMCD | How is my Country Doing?" %}
+{%set og_url = "https://coronavirus.dadosecausas.org" %}
+
+
+{%set twitter_title = "HIMCD | How is my Country Doing?" %}
+{%set twitter_image = "https://vdn.libreflix.org/cdc/himcd/share-himcd.jpg" %}
+{% endif %}
+
+{% block metas %}
+<link rel="shortcut icon" href="{{url_for('.static', filename='favicon.png')}}">
+<meta name="description" content="How is my Country Doing? This project aims to inform researchers, decision makers, and the general public about the most promising strategies to tackle COVID-19.">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:image" content="{{og_image}}" />
+<meta property="og:type" content="blog" />
+<meta property="og:title" content="{{og_title}}" />
+<meta property="og:description" content="How is my Country Doing? This project aims to inform researchers, decision makers, and the general public about the most promising strategies to tackle COVID-19." />
+<meta property="og:site_name" content="HIMCD | How is my Country Doing?" />
+
+<!-- twitter metatags-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{twitter_title}}">
+<meta name="twitter:description" content="How is my Country Doing? This project aims to inform researchers, decision makers, and the general public about the most promising strategies to tackle COVID-19.">
+<meta name="twitter:image" content="{{twitter_image}}">
+
+{% endblock %}
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='stylesheets/base.css')}}?v=1">
+<link rel="stylesheet" href="https://vdn.libreflix.org/cdc/himcd/custom.css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+{% endblock%}
+
+{% block title %}
+{% if titulo %}
+{{ titulo }} | COVID-19 - How Is My Country Doing?
+{% else %}
+COVID-19 - How Is My Country Doing?
+{% endif %}
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block content %}
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}
+
+{% block scripts %}
+{{ super() }}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{url_for('.static', filename='javascript/script.js')}}"></script>
+{% endblock scripts %}

@@ -1,0 +1,54 @@
+{% extends "layout.html.jinja" %}
+{% set titulo = country  %}
+{% import "macros/list.jinja" as list %}
+{% import "macros/list_socio.jinja" as list_socio %}
+{% import "macros/list_live_stats.jinja" as list_live_stats %}
+{% import "macros/list.jinja" as list %}
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+
+<div class="container">
+    <div class="row gutter-bottom">
+        <div class="col text-center">
+            <h2>{{ _('Report for %(country)s', country=country) }}</h2>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col">
+        {{ list.render(_('List of most similar places to %(country)s – Cases numbers', country=country),
+                    _("""The places below are those that had cases before %(country)s. The similarity index and difference in days are
+given by the proximity of the curves of number of deaths. See comparison charts and timelines for
+more details.""", country=country),
+                    simcountries,
+                    place=country) }}
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col">
+        {{ list_socio.render(_('List of most similar places to %(country)s – Socioeconomics', country=country),
+                    _("""The places below are similar to %(country)s in terms of socioeconomic factors. The similarity index is based on
+several variables that might influence the severity of the epidemic. See comparison charts for
+more details.""", country=country),
+                    simcountries_socio,
+                    place=country) }}
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col">
+        {{ list_live_stats.render(_('Current epidemic statistics for %(country)s', country=country),
+                    _("Change is the variation of the value in relation to the previous day (in percentage points)."),
+                    live_stats,
+                    place=country) }}
+        </div>
+    </div>
+</div>
+
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}

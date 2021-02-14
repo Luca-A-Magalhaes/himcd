@@ -1,0 +1,12 @@
+{% macro render(title, description, id) -%}
+<a data-toggle="collapse" href="#{{ id }}" role="button" aria-expanded="false" aria-controls="{{ id }}">
+    <h4 class="question px-4 py-3">
+    {{ title }}
+    </h4>
+  </a>
+  <div class="collapse px-5" id="{{ id }}">
+    <p>
+      {{ description }}
+    </p>
+  </div>
+{%- endmacro %}

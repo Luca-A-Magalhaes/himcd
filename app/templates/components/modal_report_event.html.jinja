@@ -1,0 +1,66 @@
+<!-- REPORT EVENT MODAL -->
+<button type="button" id="reportEventModalBtn" class="report-event-btn" data-toggle="modal"
+    data-target="#reportEventModal">
+    <svg class="bi bi-plus" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v4a.5.5 0 01-.5.5H4a.5.5 0 010-1h3.5V4a.5.5 0 01.5-.5z"
+            clip-rule="evenodd" />
+        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 01.5-.5h4a.5.5 0 010 1H8.5V12a.5.5 0 01-1 0V8z"
+            clip-rule="evenodd" />
+    </svg>
+</button>
+<div class="modal fade" id="reportEventModal" tabindex="-1" role="dialog" aria-labelledby="reportEventModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="reportEventModalTitle">Report New Event</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="container">
+                <p>{{ _('Here you can contribute by reporting any important events about the epidemic in these countries. After verification, these events will be added to the timeline of the corresponding country.', place=place) }}</p>
+            </div>
+            <div class="modal-body">
+                <div class="form-new-event">
+                    <input type="hidden" class="form-event-place" value="{{ place }}">
+                    <div class="form-group">
+                        <label>{{ _('Event type') }}</label>
+                        <small>{{ _('– Select the option that better suits the event.') }}</small>
+                        <select class="form-control form-event-type">
+                            <option value="quarantine">{{ _('Beginning of quarantine') }}</option>
+                            <option value="mesures">{{ _('Government mesures') }}</option>
+                            <option value="overload">{{ _('Health system overload') }}</option>
+                            <option value="unquarantine">{{ _('End of quarantine') }}</option>
+                            <option value="other">{ _('Other') }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ _('Event description') }}</label>
+                        <textarea class="form-control form-event-description" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>{{ _('Event date') }}</label>
+                        <input class="form-event-date form-control" type="date">
+                    </div>
+                    <div class="form-group">
+                        <label>{{ _('Event source') }}</label>
+                        <small>{{ _('– Post a link to any news about this event.') }}</small>
+                        <input type="url" class="form-event-source form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary form-event-submit">{{ _('Submit event') }}</button>
+                </div>
+                <div class="form-event-loading justify-content-center d-none">
+                    <img src="{{ url_for('.static', filename='img/loading.gif') }}" alt="">
+                    <h3>{{ _('Sending event...') }}</h3>
+                </div>
+                <div class="form-event-success d-none">
+                    <h2 class="text-success">{{ _('Event submitted!') }}</h2>
+                    <p>{{ _("""Thank you for your contribution! Your event will soon be reviewed by our team and displayed
+                        on this timeline.""") }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

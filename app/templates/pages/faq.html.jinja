@@ -1,0 +1,101 @@
+{% extends "layout.html.jinja" %}
+{% import "macros/faq_item.jinja" as faq_item %}
+{% block styles %}
+{{ super() }}
+<style>
+  .question a:link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .question a:before {
+    content: "\f107";
+    /* fa-chevron-down */
+    font-family: 'FontAwesome';
+  }
+
+  .question>a[aria-expanded="true"]:before {
+    content: "\f106";
+    /* fa-chevron-up */
+  }
+
+  .comparisonChart {
+    width: 100%;
+    max-width: 600px;
+  }
+</style>
+{% endblock styles%}
+{% set titulo =  _('Frequently Asked Questions')  %}
+{% block content %}
+{% block navbar%}
+{% include "components/navbar.html.jinja"  %}
+{% endblock navbar %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>{{ _('Frequently Asked Questions') }}</h3>
+    </div>
+  </div>
+
+  {% set title = "How can I help the project?" %}
+  {% set description = '
+  <p>{{ _("Even if you dont have technical experience, you can help by:") }}</p>
+    <ul>
+      <li>{{ _("Spreading the word about the project and the resources that we publish;") }}</li>
+      <li>{{ _("Finding and reporting bugs in the website;") }}</li>
+      <li>{{ _("Translating pages to languages you know well;") }}</li>
+    </ul>
+    <p>{{ _("If you want to help with coding and analyses:") }}</p>
+    <ul>
+      <li>{{ _("Consider joining the") }} <a href="www.dadosecausas.org" target="_blank"> {{ _("Data Science for a Cause project;") }} </a>
+      </li>
+      <li>{{ _("Get in") }} <a href="mailto:cienciadadoscausa@gmail.com" target="_blank" rel="noopener noreferrer">{{ _("touch") }}</a> 
+        {{ _("to be included in our development repository.") }}</li>
+    </ul>
+  '''%}
+  {% set id = "helpTheProject" %}
+
+  {{ faq_item.render(title, description, id) }}
+
+  {% set title = "How to interpret the Comparison Charts?" %}
+  {% set description = """The charts are intended to provide a simple way to compare the evolution of COVID-19
+      in pairs of countries that are in different stages of the epidemic. We use the reported
+      deaths to align the data of both countries, which allows presenting them as if they were at the same
+      stage of the epidemic. For example, the chart below compares Brazil and Italy. When it
+      was created, Italy was about 28 days ahead of Brazil in terms of the epidemic's
+      progression. Brazil's line (blue) crosses Italy's line (red) at around 1,000 deaths.
+      Judging by the trends of the death lines, Brazil is expected to experience a less severe
+      growth in deaths than Italy did in the same time period after the disease's arrival. However, always be careful about drawing conclusions
+      based on these trends. The epidemic's dynamic is always changing. Different
+      countries have different means and strategies to cope with the issue, which also might
+      change over time. For more information about relevant news in each country, check out
+      the events timeline."""%}
+  {% set id = "interpretCharts" %}
+
+  {{ faq_item.render(title, description, id) }}
+
+  {% set title = "Why is data aligned based on deaths?" %}
+  {% set description = """The number of deaths is currently the most accurate metric to assess the epidemic
+      profile of a country. The number of confirmed cases varies too much in relation to the number of real cases, depending on
+      how countries perform tests to identify infected people. Although on purpose
+      underreporting of deaths has been suspected in some countries, the variation in
+      death numbers is still smaller than for number of cases. For this reason, we use the number of deaths
+      to align the curves in the charts and the events in the timelines."""%}
+  {% set id = "whyBasedOnDeaths" %}
+
+  {{ faq_item.render(title, description, id) }}
+
+  {% set title = "Why can't I compare two arbitrary places?" %}
+  {% set description = """Currently, we only offer comparisons for places with a difference in days greater than 14
+      (based on the death curves' alignment), or for places with similar socioeconomic realities.
+      We believe these are the most relevant combinations to analyse, but we might consider expanding
+      the interface as the project develops."""%}
+  {% set id = "whyCantComparePlaces" %}
+
+  {{ faq_item.render(title, description, id) }}
+
+</div>
+{% block footer %}
+{% include "components/footer.html.jinja"  %}
+{% endblock footer %}
+{% endblock content %}
