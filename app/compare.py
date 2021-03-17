@@ -14,6 +14,7 @@ from scipy.spatial.distance import pdist, euclidean
 from sklearn.preprocessing import MinMaxScaler
 from datetime import datetime, timedelta
 from io import StringIO, BytesIO
+from app.models import Country, CountryStatus
 import base64
 import plotly.figure_factory as ff
 
@@ -28,12 +29,13 @@ def get_all_countries_response():
     return list(df_places['Country'])
 
 def get_df_similar_places(place, level = 'countries'):
-    if level == 'cities':
-        df_sim = pd.read_csv(data_dir + 'all_{}_similarity.csv'.format(level))
-        df_sim = df_sim[df_sim['CityBase'] == place]
-        df_sim = df_sim[['Name', 'gap', 'dist', 'Similarity']].set_index('Name')
-        return df_sim
-    df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    # if level == 'cities':
+    #     df_sim = pd.read_csv(data_dir + 'all_{}_similarity.csv'.format(level))
+    #     df_sim = df_sim[df_sim['CityBase'] == place]
+    #     df_sim = df_sim[['Name', 'gap', 'dist', 'Similarity']].set_index('Name')
+    #     return df_sim
+    # df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    df_orig = Country.all_countries_as_df()
     df_orig_piv_day = df_orig.pivot(index='Name', columns='Day', values='TotalDeaths')
 
     df_orig_piv_day = df_orig_piv_day.fillna(0)
@@ -329,7 +331,8 @@ def get_total_cases_df_adjusted(df_orig, df_places_gap, place, place2):
 
 def get_place_comparison_df(place, place2, level = 'countries', priority = 'now'):
 
-    df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    # df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    df_orig = Country.all_countries_as_df()
 
     # to force place order
     df_orig_c1 = df_orig[df_orig['Name'] == place]
@@ -597,7 +600,8 @@ def make_chart_response(country, deaths_start, avg_before_deaths, df_to_show):
     return buf
 
 def get_timeline_list(place, place2, level = 'countries'):
-    df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    # df_orig = pd.read_csv(data_dir + 'total_cases_{}_normalized.csv'.format(level))
+    df_orig = Country.all_countries_as_df()
 
     # to force place order
     df_orig_c1 = df_orig[df_orig['Name'] == place]
@@ -760,18 +764,3 @@ def get_place_socio_stats(place, level = 'countries'):
     df_socio_stats_place.variable = fix_variable_names(df_socio_stats_place['variable'])
 
     return df_socio_stats_place[['variable', 'value', 'score']].to_dict('records')
-
-if __name__ == "__main__":
-    # execute only if run as a script
-    # df = get_place_comparison_df('Brazil', 'Iran', level = 'countries', priority='start')
-    df = get_place_comparison_df('Osasco-SP', 'São Paulo-SP', level = 'cities', priority='now')
-
-
-    # get_fig_compare_rates('Brazil', 'Italy')
-    # tl = get_timeline_list('Bolivia', 'Hungary')
-
-    # df = get_df_similar_places('Fortaleza-CE', level='cities')
-
-    # df =  get_place_live_stats('Salvador-BA', level='cities')
-
-    print('bla', df)

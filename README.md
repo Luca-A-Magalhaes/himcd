@@ -52,6 +52,28 @@ The project provides pré-built pages structures and components, inside the `app
 
 To start a new page you can rename the example page at `app/templates/pages/page.html.jinja`.
 
+## Data
+
+The project provides an interface to import pandemic data into the database.
+
+You can do so with the command
+
+```
+pipenv run flask data load path/to/file.csv
+```
+
+The command will take the file csv data and add to the `Country` and `CountryStatus` tables.
+
+Note the command by default will only append new data, not update or delete previous data.
+
+But you can pass the `--override` flag to erase all previous data before importing.
+
+The file content format is
+
+```
+'Country Name', 'Date', 'Total', 'Day' (days since beginning of the pandemic), 'TotalDeaths', 'TotalPer100k', 'TotalDeathsPer100k', 'DayNorm' (days since country's 10th death, 'GrowthRate' (increase factor from previous day), 'GrowthRateDeaths', 'DaysToDouble' (number of days to double cases based on current rate), 'DaysToDoubleDeaths', 'WeeklyGrowth' (percentage of growth in the previous 7 days), 'WeeklyGrowthDeaths'
+```
+
 ## Translations
 
 To contribute to the translations section follow the steps:
