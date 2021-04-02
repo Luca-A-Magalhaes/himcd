@@ -32,6 +32,7 @@ yapf = "*"
 nbformat = ">=4.2.0"
 email-validator = "*"
 python-wordpress-xmlrpc = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"

@@ -13,6 +13,22 @@ We use also [Pipenv](https://github.com/pypa/pipenv) to manage or dependencies.
 
 ### Installing
 
+## Using Docker
+
+We recommend using [Docker](https://www.docker.com/) to facilitate the configuration of the project.
+
+After [installing the Docker engine](https://www.docker.com/get-started), you can run
+
+```
+docker-compose up -d
+```
+
+and access http://localhost:5000 once the building process is finished (Notice: this can take a while depending on how much resources you enabled for Docker).
+
+Also, you can change the port for the application and database connection on the `docker-compose.yaml` file
+
+## Using Pipenv
+
 To run your project local:
 
 Install the dependencies
@@ -38,10 +54,16 @@ Configure your database
 pipenv run flask migrate up
 ```
 
-Run the application
+Run the application using the flask webserver
 
 ```
 pipenv run flask run
+```
+
+Or using gunicorn WSGY
+
+```
+pipenv run sh ./gunicorn.sh
 ```
 
 Access http://localhost:5000 (or to the other port configured on your .env file) to see the running site.
