@@ -23,9 +23,12 @@ def load(file, override):
         exit(1)
 
     if override:
+        print("Clearing up tables...")
         CountryStatus.query.delete()
         Country.query.delete()
+        print("Done!")
 
+    print("Inserting new data")
     for (index,row) in df.iterrows():
 
         country = Country.query.filter_by(name=row["Name"]).first()
@@ -53,6 +56,8 @@ def load(file, override):
         status.weekly_growth = row["WeeklyGrowth"] if "WeeklyGrowth" in row and not math.isnan(row["WeeklyGrowth"])  else None
         status.weekly_growth_deaths = row["WeeklyGrowthDeaths"] if "WeeklyGrowthDeaths" in row and not math.isnan(row["WeeklyGrowthDeaths"])  else None
         status.save()
+        print(".", end='')
+    print("Done!")
 
 
 @app.cli.group()

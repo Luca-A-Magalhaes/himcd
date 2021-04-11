@@ -6,5 +6,6 @@
 
 # Data folder
 /data/**/*
+!/data/sample_data.csv
 
 data_updater_local.sh
