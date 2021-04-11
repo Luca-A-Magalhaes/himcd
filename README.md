@@ -4,7 +4,7 @@ This is a template site for comparing data of pandemics progression between plac
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Downloading
 
@@ -18,18 +18,17 @@ git clone https://github.com/Luca-A-Magalhaes/himcd
 
 The project uses [MySQL](https://www.mysql.com/downloads/) as default database engine, you will need an instance running with a database for the project. If you want to change to another engine refer to [SQLAlchemy Manual](https://docs.sqlalchemy.org/en/14/core/engines.html) and edit the `config.py`.
 
-Also if you dont want to setup an database initially, you can use an development database provide on the [Using Docker](#using-docker) setup. WARNING: we DO NOT recommend using this database on production environment, since all database data WILL BE WIPED on the container removal.
-
+Also if you dont want to setup a database initially, you can use a development database provide on the [Using Docker](#using-docker) setup. WARNING: we DO NOT recommend using this database on production environment, since all database data WILL BE WIPED on the container removal.
 
 ### Using Docker
 
 We recommend using [Docker](https://www.docker.com/) to facilitate the configuration of the project.
 
-After [installing the Docker engine](https://www.docker.com/get-started), edit `environment` section in `docker-compose.yaml` (line 13) with your database connection. If you're running the database locally, leave the `DB_HOST` set to `host.docker.internal`.
+After [installing the Docker engine](https://www.docker.com/get-started), edit the `environment` section in `docker-compose.yaml` file (line 13) with your database connection. If you're running the database locally, leave the `DB_HOST` set to `host.docker.internal`.
 
-If you dont have database runnning. Comment lines 14-18 of `docker-compose.yaml` and uncomment lines 19-31 to use a development mysql database.
+If you dont have a database runnning. Comment lines 14-18 of `docker-compose.yaml` and uncomment lines 19-31 to use a development mysql database.
 
-Then you can run (Notice: this can take a while depending on how much resources you enabled for Docker).
+Then you can run the following command to create the containers (Notice: this can take a while depending on how much resources you enabled for Docker).
 
 ```
 docker-compose up -d
@@ -41,9 +40,9 @@ After the container finished building, configure the database with:
 docker exec himcd pipenv run flask migrate up
 ```
 
-and access http://localhost:5000
+And access http://localhost:5000 to see the running site.
 
-
+Notice: At first there wont be much content as the database is empty. See [Data](#data) for more information on importing data.
 
 ## Using Pipenv
 
@@ -55,13 +54,13 @@ First, install the dependencies
 pipenv install
 ```
 
-Configure your `.env` file. This repository comes with an example config. Please fill in the correct connection to your database
+Configure your `.env` file. This repository comes with an example config in `.env.example`. Please fill in the correct connection to your database
 
 ```
 cp .env.example .env
 ```
 
-Configure your database
+Setup your database
 ```
 pipenv run flask migrate up
 ```
@@ -80,6 +79,8 @@ pipenv run sh ./gunicorn.sh
 
 Access http://localhost:5000 (or to the other port configured on your .env file) to see the running site.
 
+Notice: At first there wont be much content as the database is empty. See [Data](#data) for more information on importing data.
+
 ### Templates structure
 
 The project provides pré-built pages structures and components, inside the `app/templates` folder.
@@ -90,7 +91,7 @@ To start a new page you can rename the example page at `app/templates/pages/page
 
 The project provides an interface to import pandemic data into the database. Use the `data/` folder to store your CSV files.
 
-You can do so with the command
+You can import new files with the command
 
 ```
 pipenv run flask data load data/file.csv
@@ -102,7 +103,7 @@ Or if you are using Docker
 docker exec himcd pipenv run flask data load data/file.csv
 ```
 
-The command will take the file csv data and add to the `Country` and `CountryStatus` tables.
+The command will take the CSV data and add to the `Country` and `CountryStatus` tables.
 
 Note the command by default will only append new data, not update or delete previous data.
 
@@ -198,4 +199,4 @@ The people behind the site are:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
