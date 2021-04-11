@@ -16,7 +16,7 @@ git clone https://github.com/Luca-A-Magalhaes/himcd
 
 ### Configuring the database
 
-The project uses [MySQL](https://www.mysql.com/downloads/) as default database engine, you will need an instance running with a database for the project. If you want to change to another engine refer to [SQLAlchemy Manual](https://docs.sqlalchemy.org/en/14/core/engines.html).
+The project uses [MySQL](https://www.mysql.com/downloads/) as default database engine, you will need an instance running with a database for the project. If you want to change to another engine refer to [SQLAlchemy Manual](https://docs.sqlalchemy.org/en/14/core/engines.html) and edit the `config.py`.
 
 Also if you dont want to setup an database initially, you can use an development database provide on the [Using Docker](#using-docker) setup. WARNING: we DO NOT recommend using this database on production environment, since all database data WILL BE WIPED on the container removal.
 
