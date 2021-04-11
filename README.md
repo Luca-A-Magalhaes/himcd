@@ -6,47 +6,59 @@ This is a template site for comparing data of pandemics progression between plac
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Downloading
 
-The site is built with [Python 3](https://www.python.org/downloads/).
-We use also [Pipenv](https://github.com/pypa/pipenv) to manage or dependencies.
+First, download the source code by cloning this repository:
 
-### Installing
+```
+git clone https://github.com/Luca-A-Magalhaes/himcd
+```
 
-## Using Docker
+### Configuring the database
+
+The project uses [MySQL](https://www.mysql.com/downloads/) as default database engine, you will need an instance running with a database for the project. If you want to change to another engine refer to [SQLAlchemy Manual](https://docs.sqlalchemy.org/en/14/core/engines.html).
+
+Also if you dont want to setup an database initially, you can use an development database provide on the [Using Docker](#using-docker) setup. WARNING: we DO NOT recommend using this database on production environment, since all database data WILL BE WIPED on the container removal.
+
+
+### Using Docker
 
 We recommend using [Docker](https://www.docker.com/) to facilitate the configuration of the project.
 
-After [installing the Docker engine](https://www.docker.com/get-started), you can run
+After [installing the Docker engine](https://www.docker.com/get-started), edit `environment` section in `docker-compose.yaml` (line 13) with your database connection. If you're running the database locally, leave the `DB_HOST` set to `host.docker.internal`.
+
+If you dont have database runnning. Comment lines 14-18 of `docker-compose.yaml` and uncomment lines 19-31 to use a development mysql database.
+
+Then you can run (Notice: this can take a while depending on how much resources you enabled for Docker).
 
 ```
 docker-compose up -d
 ```
 
-and access http://localhost:5000 once the building process is finished (Notice: this can take a while depending on how much resources you enabled for Docker).
+After the container finished building, configure the database with:
 
-Also, you can change the port for the application and database connection on the `docker-compose.yaml` file
+```
+docker exec himcd pipenv run flask migrate up
+```
+
+and access http://localhost:5000
+
+
 
 ## Using Pipenv
 
-To run your project local:
+Also you can use [Pipenv](https://github.com/pypa/pipenv) to install and run the project.
 
-Install the dependencies
+First, install the dependencies
 
 ```
 pipenv install
 ```
 
-Configure your `.env` file. This repository comes with an example config
+Configure your `.env` file. This repository comes with an example config. Please fill in the correct connection to your database
 
 ```
 cp .env.example .env
-```
-
-Enter the Pipenv virtual env
-
-```
-pipenv shell
 ```
 
 Configure your database
@@ -60,7 +72,7 @@ Run the application using the flask webserver
 pipenv run flask run
 ```
 
-Or using gunicorn WSGY
+Or using Gunicorn WSGY
 
 ```
 pipenv run sh ./gunicorn.sh
@@ -76,12 +88,18 @@ To start a new page you can rename the example page at `app/templates/pages/page
 
 ## Data
 
-The project provides an interface to import pandemic data into the database.
+The project provides an interface to import pandemic data into the database. Use the `data/` folder to store your CSV files.
 
 You can do so with the command
 
 ```
-pipenv run flask data load path/to/file.csv
+pipenv run flask data load data/file.csv
+```
+
+Or if you are using Docker
+
+```
+docker exec himcd pipenv run flask data load data/file.csv
 ```
 
 The command will take the file csv data and add to the `Country` and `CountryStatus` tables.
@@ -89,6 +107,8 @@ The command will take the file csv data and add to the `Country` and `CountrySta
 Note the command by default will only append new data, not update or delete previous data.
 
 But you can pass the `--override` flag to erase all previous data before importing.
+
+We provide a `data/sample_data.csv` file as an example of data accepted.
 
 The file content format is
 
