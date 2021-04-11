@@ -21,7 +21,8 @@ import plotly.figure_factory as ff
 data_dir = 'data/'
 
 def get_all_places(level='countries'):
-    df_places = pd.read_csv(data_dir + 'all_{}_compare.csv'.format(level))
+    # df_places = pd.read_csv(data_dir + 'all_{}_compare.csv'.format(level))
+    df_places = Country.all_countries_names_as_df()
     return list(df_places['Name'])
 
 def get_all_countries_response():

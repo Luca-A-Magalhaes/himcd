@@ -19,4 +19,13 @@ class Country(Base):
                 row = [[country.name] + status.all_status()]
                 df += row
         
-        return DataFrame(df,columns=["Name","Date","Total","Day","TotalDeaths","DailyDeaths","DailyCases","TotalPer100k","TotalDeathsPer100k","DailyDeathsPer100k","DailyCasesPer100k","DayNorm","GrowthRate","GrowthRateDeaths","DaysToDouble","DaysToDoubleDeaths","WeeklyGrowth","WeeklyGrowthDeaths"])
+        return DataFrame(df, columns=["Name","Date","Total","Day","TotalDeaths","DailyDeaths","DailyCases","TotalPer100k","TotalDeathsPer100k","DailyDeathsPer100k","DailyCasesPer100k","DayNorm","GrowthRate","GrowthRateDeaths","DaysToDouble","DaysToDoubleDeaths","WeeklyGrowth","WeeklyGrowthDeaths"])
+
+    @staticmethod
+    def all_countries_names_as_df():
+        countries = Country.query.all()
+        df = []
+        for country in countries:
+            df += [country.name]
+
+        return DataFrame(df, columns=["Name"])
